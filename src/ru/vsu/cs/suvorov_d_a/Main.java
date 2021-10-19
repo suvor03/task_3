@@ -8,10 +8,10 @@ public class Main {
         Locale.setDefault(Locale.ROOT);
 
         if (!test.makeColorCheck(picture)) {
-            System.out.println("Tests are not completed");
-            System.exit(1);
+            System.out.println("Error. Test are not completed.");
+            return;
         } else {
-            System.out.println("Tests are completed");
+            System.out.println("Successful. Test are completed");
         }
 
         double x = readNumber("X: ");
