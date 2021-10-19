@@ -3,27 +3,31 @@ package ru.vsu.cs.suvorov_d_a;
 import java.util.Locale;
 import java.util.Scanner;
 
-import static ru.vsu.cs.suvorov_d_a.Picture.getColor;
-import static ru.vsu.cs.suvorov_d_a.Test.makeTest;
-
 public class Main {
     public static void main(String[] args) {
         Locale.setDefault(Locale.ROOT);
 
-        makeTest();
+        if (!test.makeColorCheck(picture)) {
+            System.out.println("Tests are not completed");
+            System.exit(1);
+        } else {
+            System.out.println("Tests are completed");
+        }
 
         double x = readNumber("X: ");
         checkNumberPositive(x);
-
         double y = readNumber("Y: ");
         checkNumberPositive(y);
 
         printColorPoint(x, y);
     }
 
+    private static final Picture picture = new Picture();
+    private static final Test test = new Test();
+
     public static void printColorPoint(double x, double y) {
         System.out.printf("(%.2f, %.2f) -> ", x, y);
-        System.out.println(getColor(x, y));
+        System.out.println(picture.getColor(x, y));
     }
 
     private static double readNumber(String value) {
